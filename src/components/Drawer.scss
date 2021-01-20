@@ -1,0 +1,25 @@
+@import "../variables";
+
+.drawer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 4rem;
+	background-color: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	&__button {
+		background: $gradientColor;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		&--large {
+			background-clip: unset;
+			-webkit-text-fill-color: unset;
+			color: white;
+			border-radius: 50%;
+			font-size: 2rem;
+		}
+	}
+}
