@@ -1,12 +1,14 @@
-import './App.css';
+import './App.scss';
 import { Router } from "@reach/router";
 import Featured from "./pages/Featured";
 
 function App() {
   return (
-    <Router>
-      <Featured path="/" />
-    </Router>
+    <div className="app">
+      <Router>
+        <Featured path="/" />
+      </Router>
+    </div>
   );
 }
 
