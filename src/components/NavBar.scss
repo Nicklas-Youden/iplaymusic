@@ -9,9 +9,28 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: white;
 	padding: 0 2rem;
 	box-sizing: border-box;
 	font-weight: 200;
 	text-transform: uppercase;
+	z-index: 100;
+	&--transparent {
+		background: transparent;
+	}
+	&--solid, &--light {
+		background-color: white;
+		color: black;
+	}
+	&__button {
+		appearance: none;
+		border: none;
+		background: none;
+		padding: 0;
+	}
+	&__bgImg {
+		z-index: -100;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 }

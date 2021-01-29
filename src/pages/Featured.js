@@ -1,20 +1,35 @@
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import Drawer from "../components/Drawer";
 import FeaturedCard from "../components/FeaturedCard";
 import NavBar from "../components/NavBar";
 import Page from "../components/Page";
 import PageHeading from "../components/PageHeading";
+import TokenContext from "../contexts/TokenContext";
 
 export default function Featured() {
+	var [token] = useContext(TokenContext);
+	var [content, setContent] = useState([]);
+
+	useEffect(function() {
+		axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
+			headers: {
+				"Authorization": "Bearer " + token.access_token
+			}
+		})
+			.then(response => setContent(response.data.playlists.items));
+	}, [token]);
+
 	return (
 		<>
 		<NavBar>Featured</NavBar>
 		<Page>
 			<PageHeading>Featured</PageHeading>
-			<FeaturedCard image="https://picsum.photos/id/200/350/370" album="The Greatest Showman" genre="Soundtrack" />
-			<FeaturedCard image="https://picsum.photos/id/250/350/370" album="Black" genre="Rock" />
-			<FeaturedCard image="https://picsum.photos/id/301/350/370" album="Live At Wembley" genre="Rock" />
-			<FeaturedCard image="https://picsum.photos/id/401/350/370" album="The Greatest Showman" genre="Soundtrack" />
-			<FeaturedCard image="https://picsum.photos/id/501/350/370" album="The Greatest Showman" genre="Soundtrack" />
+			{content?.map(item => <FeaturedCard
+				key={item.id}
+				image={item.images[0].url}
+				album={item.name}
+				genre={item.type} />)}
 		</Page>
 		<Drawer />
 		</>

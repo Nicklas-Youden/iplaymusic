@@ -1,0 +1,13 @@
+.loginButton {
+	grid-column-start: 2;
+	grid-column-end: 4;
+	display: block;
+	border: 2px solid black;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 700;
+	color: black;
+	height: 2rem;
+	border-radius: 1rem;
+}
