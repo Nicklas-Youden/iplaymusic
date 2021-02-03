@@ -1,0 +1,10 @@
+.sliderItem {
+	display: inline-block;
+	&__image {
+		height: 100px;
+		width: auto;
+		border-radius: 5px;
+		box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.2);
+		display: inline-block;
+	}
+}

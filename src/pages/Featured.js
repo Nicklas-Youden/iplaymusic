@@ -29,7 +29,8 @@ export default function Featured() {
 				key={item.id}
 				image={item.images[0].url}
 				album={item.name}
-				genre={item.type} />)}
+				genre={item.type}
+				id={item.id} />)}
 		</Page>
 		<Drawer />
 		</>
